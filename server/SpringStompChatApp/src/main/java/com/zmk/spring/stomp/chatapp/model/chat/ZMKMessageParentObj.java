@@ -1,5 +1,5 @@
 package com.zmk.spring.stomp.chatapp.model.chat;
-
-public class ZMKMessageParentObj {
+// 3-
+public class ZMKMessageParentObj extends ZMKParentObj{
 
 }

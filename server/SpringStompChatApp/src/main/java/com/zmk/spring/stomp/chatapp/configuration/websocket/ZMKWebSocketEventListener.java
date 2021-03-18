@@ -29,14 +29,14 @@ public class ZMKWebSocketEventListener {
     public void handleWebSocketDisconnectListener(SessionDisconnectEvent event) {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
 
-        String username = (String) headerAccessor.getSessionAttributes().get("username");
+        String userId = (String) headerAccessor.getSessionAttributes().get("user_id");
         String roomId = (String) headerAccessor.getSessionAttributes().get("room_id");
-        if (username != null) {
-            logger.info("User Disconnected: " + username);
+        if (userId != null) {
+            logger.info("User Id Disconnected: " + userId);
 
             ZMKMessageObj chatMessage = new ZMKMessageObj();
             chatMessage.setType(ZMKMessageObj.MessageType.LEAVE);
-            chatMessage.setSender(username);
+            chatMessage.setSenderId(userId);
 
             //messagingTemplate.convertAndSend(format("/channel/%s", roomId), chatMessage);
             messagingTemplate.convertAndSend("/topic/chat/public", chatMessage);

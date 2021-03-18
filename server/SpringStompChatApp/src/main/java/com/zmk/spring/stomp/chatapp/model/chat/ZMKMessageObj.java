@@ -8,8 +8,11 @@ public class ZMKMessageObj extends ZMKMessageParentObj{
 
     private MessageType messageType;
     private String content;
-    private String sender;
+    private String senderId;
 
+    private String receiverId;
+    
+    
     public MessageType getType() {
         return messageType;
     }
@@ -26,11 +29,25 @@ public class ZMKMessageObj extends ZMKMessageParentObj{
         this.content = content;
     }
 
-    public String getSender() {
-        return sender;
+    public String getSenderId() {
+        return senderId;
     }
 
-    public void setSender(String sender) {
-        this.sender = sender;
+    public void setSenderId(String senderId) {
+        this.senderId = senderId;
     }
+
+	public String getReceiverId() {
+		return receiverId;
+	}
+
+	public void setReceiverId(String receiverId) {
+		this.receiverId = receiverId;
+	}
+
+	@Override
+	public String toString() {
+		return "msgType: "+messageType+"\n"+"msgContent: "+content+"\n"+"msgSender: "+senderId+"\n"+"msgReceiver: "+receiverId+"\n";
+	}
+    
 }

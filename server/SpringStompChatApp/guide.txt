@@ -1,0 +1,10 @@
+1. SpringStompChatAppApplication => start project 
+2. ZMKWebSocketConfig => config socket and other config  
+3. ZMKMessageObj + others Objects  => create object model link to DB 
+   CollectionsConfig => create index to fulltext search for mongoDB
+4. ZMKWebSocketEventListener => process listen events for socket
+5. JSONResponseHelper -> ZMKChatController + others controllers => Build a controller for test, if for DB-> after step 7
+   application.properties  => config database 
+6. Repository => process in DB 
+7. Service => call process to repository 
+8. Test => test test-case in development 
